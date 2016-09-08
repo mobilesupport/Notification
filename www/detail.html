@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    
+     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+
+    <link rel="stylesheet" href="css/notification.css">
+     <title>Notification Detail</title>
+    <script type="text/javascript">
+    $(document).bind('mobileinit',function(){
+        $.mobile.loadingMessage = false;
+        $.mobile.loading().hide();
+    })
+</script>  
+     <script type="text/javascript" src="js/jquery-mobile/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="js/jquery-mobile/jquery.mobile-1.4.5.js"></script>
+    
+    
+   
+ <!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+    
+    <script>
+        
+    
+    $(function(){
+
+        $( "#delete" ).click(function() {
+              alert("This is an alert");
+            });
+        
+    });
+    </script>
+    
+</head>
+
+<body class="pagedetail">
+    <div class="app">
+        
+        <div class="menuheader">
+            
+        <p class="share">Share</p>
+        <p class="title">Notification</p>
+         
+    </div>
+        
+    <div class="container">
+        
+        <div class="wrapper" >
+            
+            <div class="detail">
+
+                <div class="detailrow">
+                    <div class="firstcol" id="datentime"><span id="nametxt">Date/Time </span><span id="colon">:</span></div>
+                    <div class="scdcol" id="dt_detail"> 2016/09/04 17:16:16</div>
+                </div>
+                
+
+                <div class="detailrow">
+                    <div class="firstcol" id="ip"><span id="nametxt">IP</span><span id="colon">:</span></div>
+                    <div class="scdcol" id="ip_detail"> 10.3.103.253</div>
+                </div>
+                
+                 <div class="detailrow">
+                     <div class="firstcol" id="sysname"><span id="nametxt">System Name</span><span id="colon">:</span></div>
+                    <div class="scdcol" id="sys_detail"> UPS01_KLIA_HGR6FF4</div>
+                </div>
+                
+                 <div class="detailrow">
+                     <div class="firstcol" id="syscon"><span id="nametxt">System Contact</span><span id="colon">:</span></div>
+                    <div class="scdcol" id="syscon_detail"> Administrator</div>
+                </div>
+                
+                 <div class="detailrow">
+                     <div class="firstcol" id="syslc"><span id="nametxt">System Location</span><span id="colon">:</span></div>
+                    <div class="scdcol" id="syslc_detail"> SDF Room 4,1st Floor, HG6</div>
+                </div>
+                
+                 <div class="detailrow">
+                     <div class="firstcol" id="status"><span id="nametxt">Status</span>
+                         <span id="colon">:</span></div>
+                    <div class="scdcol" id="sts_detail"> UPS Temperature Overrun (43.0C/109.4F)UPS Temperature Overrun (43.0C/109.4F)
+                     UPS Temperature Overrun (43.0C/109.4F)UPS Temperature Overrun (43.0C/109.4F)
+                        UPS Temperature Overrun (43.0C/109.4F)UPS Temperature Overrun (43.0C/109.4F)
+                        UPS Temperature Overrun (43.0C/109.4F)UPS Temperature Overrun (43.0C/109.4F)
+                     
+                     </div>
+                </div>
+                    
+
+           </div>
+            
+            <button type="button" id="delete"> Delete </button>
+            
+        </div>
+
+    </div>
+        
+    </div>
+    
+      
+
+</body>
+
+</html>

@@ -1,0 +1,158 @@
+.app{
+    height: 100%;
+    width: 100%;
+}
+
+div.menuheader{
+    position: fixed;
+    z-index: 3;
+    height: 50px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: #d9d9d9;
+    line-height: 50px;
+
+}
+
+
+.title{
+    margin: 0 auto;
+    font-size: 24px;
+    color: black;
+    font-weight: 700;
+    text-align: center;
+}
+
+.logout{
+    position: absolute;
+    font-size: 18px;
+    color: #00AAFF;
+    font-weight: 300;
+    margin-left: 20px;
+    
+}
+
+.share{
+    position: absolute;
+    margin: 0 auto;
+    font-size: 18px;
+    width: 100%;
+    color: #00AAFF;
+    font-weight: 300;
+    padding-right: 1000px;
+    text-align: right;
+    
+}
+
+.container{
+     position: absolute;
+     width: 100%;
+     top:50px;
+     left: 0;
+}
+
+.notifyview{
+    display: none;
+    height: 120px;
+    background-color: white;
+    color: black;
+    margin-top: 3px; 
+    cursor:pointer;
+    padding: 16px;
+}
+
+#headline{
+    font-weight: bold;
+}
+
+#notifymsg{
+    text-align: justify;
+    margin-left: 16px;
+    width: 95%;
+    white-space: nowrap;
+    overflow: hidden;    
+    text-overflow: ellipsis;
+    
+}
+
+.wrapper{
+    position: absolute;
+    display: block;
+    overflow:auto;
+    z-index:1;
+    width:100%;
+}
+
+.scrollul{
+    list-style:none;
+    padding:0;
+    margin:0;
+    width:100%;
+    text-align:left;
+}
+
+.pagenotification{
+    background-color: #f2f2f2;
+}
+
+.pagedetail{
+    background-color: white;
+}
+
+.detail{
+    display: block;
+    margin: 30px auto;
+    width: 80%;
+    text-align: justify;
+}
+
+.detailrow{
+    display: flex;
+    width: auto;
+    padding: 8px 0;
+    font-weight: bold;
+    font-size: 16px;
+    
+}
+
+.firstcol{
+    float: left;
+    display: inline-block;
+    width: 40%;
+    padding: 4px;
+    text-align: justify;
+}
+
+.scdcol{
+    
+    float: right;
+    width: 60%;
+    padding: 4px;
+}
+
+#nametxt{
+    float: left;
+    width: 95%;
+}
+
+#colon{
+    float: right;
+    width: 5%;
+}
+
+#delete{
+    display: block;
+    width: 100px;
+    margin: 0 auto;
+    text-align: center;
+    color: #00AAFF;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    margin-bottom: 50px;
+
+}
