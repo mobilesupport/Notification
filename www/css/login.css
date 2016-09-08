@@ -1,42 +1,23 @@
-.wrapper{
-     
-  margin: 20% auto;
-  width: 80%;
-   
-}
-
 .container{
-    display: flex;
-    width: 100%;
-    margin-top: 5%;
+     
+  margin: 80px auto;
+  width: 310px;
+  padding: 30px;
 }
 
-.scdcol input[type=text], .scdcol input[type=password] {
-  display: inline-block;    
-  width: 100%;
+.container input[type=text], .container input[type=password] {
+  width: 232px;
+  margin: 0 auto;
+  padding: 0 10px;
+  height: 34px;
+  vertical-align:middle;
+}
+
+input {
   font-family: 'Lucida Grande', Tahoma, Verdana, sans-serif;
-  font-size: 4vw;
-  padding: 2vw;
+  font-size: 14px;
 }
-
 
 img {
-    display: block;
-    margin: 0 auto;
-    width:9vw;
-    height:9vw;  
-}
-
-.firstcol{
-    display: inline-block;
-    width: 15%;
-    float: left;
-}
-
-.scdcol{
-    margin: 0 auto;
-    display: flex;
-    width: 85%;
-    height: 9vw;
-    float: right;
+   vertical-align:middle;
 }
