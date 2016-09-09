@@ -18,20 +18,22 @@ div.menuheader{
     width: 20%;
 	height: inherit;
 	float:left;
+
 }
 
 .headerbtn{
 	display:block;
-	width: 50%;
+    position: absolute;
+	width: 70px;
     height: inherit;
-	margin: 0 auto;
 	font-weight: 300;
 	font-size: 18px;
     color: #00AAFF;
 	text-align: center;
-    background-color: Transparent;
+    background-color: transparent;
     background-repeat:no-repeat;
     border: none;
+    
 }
 
 .title{
@@ -48,18 +50,6 @@ div.menuheader{
 }
 
 
-
-.share{
-    display: inline;
-    position: absolute;
-    text-align: right;
-    font-size: 18px;
-    color: #00AAFF;
-    font-weight: 300;
-    width: 45%;
-    background-color: antiquewhite;
-    
-}
 
 .container{
      position: absolute;
