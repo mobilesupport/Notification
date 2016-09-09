@@ -27,9 +27,12 @@
     $(function(){
 
         $( "#delete" ).click(function() {
-              alert("This is an alert");
+              alert("This is delete btn");
             });
         
+        $( "#share" ).click(function() {
+              alert("This is share btn");
+            });
     });
     </script>
     
@@ -40,10 +43,13 @@
         
         <div class="menuheader">
 
-        <div class="headerside"> <a href="notification.html"><img SRC="img/back.png" border=0 height=48px width=48px></a>
+        <div class="headerside"> 
+        <!--    <a href="notification.html"><img SRC="img/back.png" border=0 height=48px width=48px></a>-->
  </div>
         <div class="title">Notification</div>
-		<div class="headerside"><span class="headerbtn" style="text-align: right;">Share</span></div>
+		<div class="headerside">
+            <button type="button" id="share" class="headerbtn" > Share </button>
+         </div>
          
     </div>
         
