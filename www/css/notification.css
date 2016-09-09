@@ -15,37 +15,28 @@ div.menuheader{
  
 }
 
-.headerside{
-    width: 20%;
-	height: inherit;
-	float:left;
-}
-
-.headerbtn{
-	display:block;
-	width: 50%;
-	margin: 0 auto;
-	font-weight: 300;
-	line-height:50px;
-	font-size: 18px;
-    color: #00AAFF;
-	text-align: center;
-}
 
 .title{
-	
+    display: inline-block;
     margin: 0 auto;
     font-size: 24px;
     color: black;
-    width: 60%;
+    width: 20%;
     height: inherit;
     font-weight: 700;
     line-height: 50px;
     text-align: center;
-	float:left;
+    background-color: aqua;
 }
 
-
+.logout{
+    width: 6%;
+    font-size: 18px;
+    color: #00AAFF;
+    font-weight: 300;
+    margin-left: 20px;
+    
+}
 
 .share{
     display: inline;
