@@ -4,6 +4,7 @@
 }
 
 div.menuheader{
+    display: block;
     position: fixed;
     z-index: 3;
     height: 50px;
@@ -11,37 +12,50 @@ div.menuheader{
     top: 0;
     left: 0;
     background: #d9d9d9;
-    line-height: 50px;
-
+ 
 }
 
+.headerside{
+    width: 20%;
+	height: inherit;
+	float:left;
+}
+
+.headerbtn{
+	display:block;
+	width: 50%;
+	margin: 0 auto;
+	font-weight: 300;
+	line-height:50px;
+	font-size: 18px;
+    color: #00AAFF;
+	text-align: center;
+}
 
 .title{
+	
     margin: 0 auto;
     font-size: 24px;
     color: black;
+    width: 60%;
+    height: inherit;
     font-weight: 700;
+    line-height: 50px;
     text-align: center;
+	float:left;
 }
 
-.logout{
-    position: absolute;
-    font-size: 18px;
-    color: #00AAFF;
-    font-weight: 300;
-    margin-left: 20px;
-    
-}
+
 
 .share{
+    display: inline;
     position: absolute;
-    margin: 0 auto;
+    text-align: right;
     font-size: 18px;
-    width: 100%;
     color: #00AAFF;
     font-weight: 300;
-    padding-right: 1000px;
-    text-align: right;
+    width: 45%;
+    background-color: antiquewhite;
     
 }
 
