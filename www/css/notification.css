@@ -3,7 +3,7 @@
     width: 100%;
 }
 
-div.menuheader{
+.menuheader{
     position: fixed;
     z-index: 3;
     height: 50px;
@@ -13,6 +13,19 @@ div.menuheader{
     background: #d9d9d9;
  
 }
+
+.menufooter{
+    position: fixed;
+    z-index: 3;
+    height: 60px;
+    width: 100%;
+    border-top:2px solid #d9d9d9;
+    background: white;
+    bottom: 0;
+    left: 0;
+}
+
+
 
 .headerside{
     width: 20%;
@@ -145,18 +158,34 @@ div.menuheader{
     width: 5%;
 }
 
-#delete{
-    display: block;
-    width: 100px;
+.footerbar{
     margin: 0 auto;
-    text-align: center;
-    color: #00AAFF;
-    font-size: 18px;
-    font-weight: 500;
-    padding: 10px;
-    background-color: Transparent;
+    width: 80%;
+    height: inherit;
+}
+
+.footerbtn{
+    display: inline-block;
+    float: left;
+    width: 25%;
+    height: inherit;
+    
+}
+
+.buttonbg{
+    display:block;
+	width: 70px;
+    margin: 0 auto;
+    height: inherit;
+	text-align: center;
+    background-color: transparent;
     background-repeat:no-repeat;
     border: none;
-    margin-bottom: 50px;
+}
 
+.menubutton{
+    display: block;
+    margin: 0 auto;
+    width: 48px;
+    height: 48px;
 }
