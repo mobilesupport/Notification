@@ -30,8 +30,23 @@
         <link rel="stylesheet" href="css/login.css">
         
         <title>Login Page</title>
+        
+            <script type="text/javascript" src="js/jquery-mobile/jquery-1.11.3.min.js"></script>
+       <!-- <script type="text/javascript" src="js/jquery-mobile/jquery.mobile-1.4.5.js"></script>-->
+        <script type="text/javascript">
+            
+            var db = null;
+
+            document.addEventListener('deviceready', function() {
+              db = window.sqlitePlugin.openDatabase({name: 'demo.db', location: 'default'});
+            alert("ddd");
+            });
+
+        </script>
+        
+        
     </head>
-    <body>
+    <body >
         <div class="container">
             <div class="login">
                <form method="post" action="notification.html">
@@ -53,11 +68,17 @@
 
             </div>
         </div>
+        
+         <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+        
+    </script>
        
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
     </body>
+    
+      <script>
+        $.mobile.loading().hide();
+    </script>
 </html>

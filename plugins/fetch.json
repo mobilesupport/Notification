@@ -1,0 +1,35 @@
+{
+    "cordova-plugin-whitelist": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-whitelist@1"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-sqlite-2": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-sqlite-2"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-sqlite-storage": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-sqlite-storage@~1.4.7"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-sqlite-evcore-extbuild-free": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/litehelpers/Cordova-sqlite-evcore-extbuild-free",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    }
+}
