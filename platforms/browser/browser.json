@@ -7,24 +7,21 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-sqlite-2": {
+        "cordova-sqlite-evcore-extbuild-free": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
         },
         "cordova-sqlite-storage": {
-            "PACKAGE_NAME": "com.phonegap.helloworld"
-        },
-        "cordova-sqlite-evcore-extbuild-free": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
         }
     },
     "dependent_plugins": {},
     "modules": [
         {
-            "file": "plugins/cordova-plugin-sqlite-2/dist/sqlite-plugin.js",
-            "id": "cordova-plugin-sqlite-2.sqlitePlugin",
-            "pluginId": "cordova-plugin-sqlite-2",
+            "file": "plugins/cordova-sqlite-evcore-extbuild-free/www/SQLitePlugin.js",
+            "id": "cordova-sqlite-evcore-extbuild-free.SQLitePlugin",
+            "pluginId": "cordova-sqlite-evcore-extbuild-free",
             "clobbers": [
-                "sqlitePlugin"
+                "SQLitePlugin"
             ]
         },
         {
@@ -34,19 +31,10 @@
             "clobbers": [
                 "SQLitePlugin"
             ]
-        },
-        {
-            "file": "plugins/cordova-sqlite-evcore-extbuild-free/www/SQLitePlugin.js",
-            "id": "cordova-sqlite-evcore-extbuild-free.SQLitePlugin",
-            "pluginId": "cordova-sqlite-evcore-extbuild-free",
-            "clobbers": [
-                "SQLitePlugin"
-            ]
         }
     ],
     "plugin_metadata": {
-        "cordova-plugin-sqlite-2": "1.0.4",
-        "cordova-sqlite-storage": "1.4.7",
-        "cordova-sqlite-evcore-extbuild-free": "0.8.1"
+        "cordova-sqlite-evcore-extbuild-free": "0.8.1",
+        "cordova-sqlite-storage": "1.4.7"
     }
 }

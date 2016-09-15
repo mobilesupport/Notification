@@ -32,15 +32,41 @@
         <title>Login Page</title>
         
             <script type="text/javascript" src="js/jquery-mobile/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="js/common.js"></script>
        <!-- <script type="text/javascript" src="js/jquery-mobile/jquery.mobile-1.4.5.js"></script>-->
+       
         <script type="text/javascript">
+        
+            dbmanager.initdb();
+            dbmanager.createTable();
+            dbmanager.insertData();
+     
+            var userNameInput;
+            var passwordInput;
             
-                 var db = null;
+            function login(){
+                userNameInput=$("#username").val();
+                passwordInput=$("#password").val();
+                
+                if(userNameInput && passwordInput!=""){
+                     
+                    dbmanager.getUserProfileData(function(returnData){
+                       
+                         if(returnData.rows.length>0){
+                             
+                            location.href="notification.html";
+                        
+                        }   
+                    else{
+                        alert("Login failed. Username or password not matched");
+                        
+                    }
+              });    
+                    
+                }
+                
+            }
 
-            document.addEventListener('deviceready', function() {
-                alert("ffff");
-              db = window.sqlitePlugin.openDatabase({name: 'demo.db', location: 'default'});
-            });
             
         </script>
         
@@ -49,20 +75,20 @@
     <body >
         <div class="container">
             <div class="login">
-               <form method="post" action="notification.html">
+               <form method="post">
             <p>
                 <img src="img/user_logo.png" alt="User logo" style="width:42px;height:42px; margin-right:5px">
-                <input type="text" name="username" value="" p placeholder="Username" autofocus required/></p>
+                <input type="text" id="username" value="" p placeholder="Username" autofocus required/></p>
 
             <p>
                 <img src="img/password_logo.png" alt="User logo" style="width:42px;height:42px; margin-right:5px">
-                <input type="password" name="password" value=""  placeholder="Password"  required/>
+                <input type="password" id="password" value=""  placeholder="Password"  required/>
             </p>
             <p class="submit">
-                <a href="notification.html">
-                    <input type="image" name="submit" src="img/submit.png" border="0" alt="Submit" style="width:42px;height:42px; float:right"
+                
+                    <input type="image" name="submit" src="img/submit.png" border="0" alt="Submit" onclick="login();" style="width:42px;height:42px; float:right"
                      />
-                </a>       
+                    
             </p>
           </form>
 
@@ -79,6 +105,7 @@
     </body>
     
       <script>
-        $.mobile.loading().hide();
+        //$.mobile.loading().hide();
+
     </script>
 </html>

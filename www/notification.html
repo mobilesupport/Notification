@@ -1,45 +1,80 @@
 <!DOCTYPE html>
 
 <html>
-
 <head>
-
-    <meta charset="utf-8" />
+        <meta charset="utf-8" />
        
-    <meta name="format-detection" content="telephone=no" />
-    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, minimum-scale=1, width=device-width, target-densitydpi=medium-dpi" />
-    
-    <link rel="stylesheet" href="css/notification.css">
-
-    <title>Notification Page</title>
-    <script type="text/javascript">
-            $(document).bind('mobileinit',function(){
-                $.mobile.loadingMessage = false;
-            })
-        </script> 
-    <script type="text/javascript" src="js/jquery-mobile/jquery-1.11.3.min.js"></script>
+       <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, minimum-scale=1, width=device-width, target-densitydpi=medium-dpi" />
+        
+        <link rel="stylesheet" href="css/notification.css">
+        
+        <title>Notification Page</title>
+        
+            <script type="text/javascript" src="js/jquery-mobile/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="js/common.js"></script>
        <!-- <script type="text/javascript" src="js/jquery-mobile/jquery.mobile-1.4.5.js"></script>-->
-    <script>
-
-    $(function(){
-        $('.notifyview').show();
        
-        $( ".notifyview" ).click(function() {
-              window.location.href='detail.html';
-            });
+        <script type="text/javascript">
+            
+           
+
+            dbmanager.initdb();
+            
+            
+            function notifyshow(){
+              
+             dbmanager.getNotifyListData(function(returnData){
+                       
+                         if(returnData.rows.length>0){
+                             var count = returnData.rows.length;
+                                var contained_divs = '';
+                          //  $('.notifyview').show();
+                            for(var i=0;i<count;i++)
+                            {
+                                 
+                                contained_divs += '<div class="notifyview"><label id="headline">'+ returnData.rows.item(i).issueDate +'</label> <label id="headline">'+ returnData.rows.item(i).SysName +' </label><label id="notifymsg">'+ returnData.rows.item(i).issueStatus +' </label></div>';
+                              
+                            }
+                            $('#notifybox').append(contained_divs);
+         
+                        }   
+                    else{
+                        alert("Login failed. Username or password not matched");
+                        
+                    }
+              });    
+                    
+                
+                
+            }
+
+  $(function(){
         
         $( "#logout" ).click(function() {
               alert("This is Logout btn");
             });
+      
+              $( "#notifybox" ).click(function() {
+                  window.location.href='detail.html';
+            });
         
-    });
+    });  
 
-    </script>
-    
-</head>
+
+
+        </script>
+        
+        
+    </head>
+
     
 <body class="pagenotification">
+    
+    <script>
+        notifyshow();
+    </script>
     
     <div class="app">
         
@@ -57,65 +92,11 @@
                 <ul class="scrollul">
             
                     <li>
-                        <div class="notifyview">
-
-                            <label id="headline"> 02/09/2016 1:05am</label>
-
-                            <label id="headline"> UPS01_KLIA_HGR6FF4</label>
-
-                            <label id="notifymsg"> UPS Temperature Overrun (43.0C/109.4F)UPS Temperature Overrun (43.0C/109.4F) UPS Temperature Overrun (43.0C/109.4F)UPS Temperature Overrun (43.0C/109.4F)UPS Temperature Overrun (43.0C/109.4F)UPS Temperature Overrun (43.0C/109.4F)UPS Temperature Overrun (43.0C/109.4F)UPS Temperature Overrun (43.0C/109.4F)UPS Temperature Overrun (43.0C/109.4F)UPS Temperature Overrun (43.0C/109.4F)UPS Temperature Overrun (43.0C/109.4F)UPS Temperature Overrun (43.0C/109.4F)UPS Temperature Overrun (43.0C/109.4F)UPS Temperature Overrun (43.0C/109.4F)UPS Temperature Overrun (43.0C/109.4F)UPS Temperature Overrun (43.0C/109.4F)UPS Temperature Overrun (43.0C/109.4F)UPS Temperature Overrun (43.0C/109.4F)UPS Temperature Overrun (43.0C/109.4F)UPS Temperature Overrun (43.0C/109.4F)</label>
+                        <div id="notifybox">
                         </div>
+                       
                     </li>
-                     <li>
-                        <div class="notifyview">
-
-                             <label id="headline"> 02/09/2016 1:05am</label>
-
-                            <label id="headline"> UPS01_KLIA_HGR6FF4</label>
-
-                            <label id="notifymsg"> UPS Temperature Overrun (43.0C/109.4F)</label>
-                        </div>
-                    </li>
-                     <li>
-                        <div class="notifyview">
-
-                             <label id="headline"> 02/09/2016 1:05am</label>
-
-                            <label id="headline"> UPS01_KLIA_HGR6FF4</label>
-
-                            <label id="notifymsg"> UPS Temperature Overrun (43.0C/109.4F)</label>
-                        </div>
-                    </li>
-                     <li>
-                         <div class="notifyview">
-
-                             <label id="headline"> 02/09/2016 1:05am</label>
-
-                            <label id="headline"> UPS01_KLIA_HGR6FF4</label>
-
-                            <label id="notifymsg"> UPS Temperature Overrun (43.0C/109.4F)</label>
-                        </div>
-                    </li>
-                     <li>
-                        <div class="notifyview">
-
-                             <label id="headline"> 02/09/2016 1:05am</label>
-
-                            <label id="headline"> UPS01_KLIA_HGR6FF4</label>
-
-                            <label id="notifymsg"> UPS Temperature Overrun (43.0C/109.4F)</label>
-                        </div>
-                    </li>
-                     <li>
-                         <div class="notifyview">
-
-                             <label id="headline"> 02/09/2016 1:05am</label>
-
-                            <label id="headline"> UPS01_KLIA_HGR6FF4</label>
-
-                            <label id="notifymsg"> UPS Temperature Overrun (43.0C/109.4F)</label>
-                        </div>
-                    </li>
+                    
                 </ul>
             
         </div>
@@ -129,11 +110,10 @@
         $.mobile.loading().hide();
     </script>
 
-<!--<script>
+<script>
 /*$(function(){
     
     $("#notifyview").append("<p id='headline'> 02/09/2016 1:05am</p><p id='headline'> UPS01_KLIA_HGR6FF4</p><p id='notifymsg'> UPS Temperature Overrun (43.0C/109.4F)</p>");*/
-});
 
-</script>-->
+</script>
 </html>

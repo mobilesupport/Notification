@@ -71,7 +71,7 @@
 }
 
 .notifyview{
-    display: none;
+   display: block;
     height: 100px;
     background-color: white;
     color: black;
