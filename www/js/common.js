@@ -30,27 +30,6 @@ var dbmanager = {
 //        }
 //    },
         
-//        insertData:function(){
-//            
-// 
-//            
-//         db.transaction(function(tx){
-//              
-//             tx.executeSql('SELECT * FROM NotificationList', [], function(tx, result){
-//            
-//                 if(result.rows.length == 0){
-//                       
-//                       tx.executeSql('INSERT INTO NotificationList  (issueID, issueDate, ipAddress, SysName, SysContact, SysLocation, issueStatus, read) VALUES ("001", "2016/09/04 17:16:16","10.3.103.253","UPS01_KLIA_HGR6FF4","Administrator","SDF Room 4,1st Floor, HG6"," UPS Temperature Overrun (43.0C/109.4F)","false")');   
-//                     
-//                       tx.executeSql('INSERT INTO NotificationList  (issueID, issueDate, ipAddress, SysName, SysContact, SysLocation, issueStatus, read) VALUES ("002", "2015/12/31 17:16:16","10.3.103.253","UPS05_KLIA_TGHMN04","Administrator","SDF Room 4,1st Floor, HG6"," UPS Server Down (43.0C/109.4F)","false")');   
-//                     
-//                       tx.executeSql('INSERT INTO NotificationList  (issueID, issueDate, ipAddress, SysName, SysContact, SysLocation, issueStatus, read) VALUES ("003", "2015/01/02 17:16:16","10.3.103.253","UPS01_KLIA_AFRT6F4","Administrator","SDF Room 4,1st Floor, HG6"," UPS Not Responding (43.0C/109.4F)","false")');    
-//
-//                    }
-//
-//          }, this.errorExecuteSQL);
-//        });
-//},
 
      //select user profile data
     getUserProfileData:function(returnData){

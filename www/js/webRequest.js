@@ -57,7 +57,7 @@ function postLogin(token, username, password){
         var ustatus=data.USER_STATUS; 
        
         
-       // storeProfile(uid, name, email, phoneno, date, staffno,udesignation,ulogin,ustatus);
+           storeProfile(uid, name, email, phoneno, date, staffno,udesignation,ulogin,ustatus);
            postNotification(uid); 
           
       },
@@ -83,7 +83,7 @@ function postNotification(accessId){
     var requestUrl="http://192.168.1.19/notification_api/api/notification/PostNotification";
     var valueStr=accessId+sha1Key;
     var hashedStr=SHA1(valueStr);
-    //alert("accessId=" + accessId + "&checksum=" + hashedStr);
+    
     try{
         $.ajax({
       url: requestUrl,
@@ -91,7 +91,7 @@ function postNotification(accessId){
       headers: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
-      data:"accessId=B33407BC-6E4C-4F39-8C12-EFEED77E4315&checksum=3a8c00f837690f21863c7ac522c924ec17a98016",
+      data:"accessId=" + accessId + "&checksum=" + hashedStr,
       timeout: apiTimeOut,    
       success: function(data, status, xhr) {
           
@@ -120,7 +120,6 @@ function storeNotification(data){
         insertProfile();
 
         function insertProfile() {
-            var db = window.openDatabase("Database", "1.0", "Notification", 200000);
        
                    db.transaction(function(tx) {
             
@@ -128,7 +127,7 @@ function storeNotification(data){
             
             tx.executeSql('CREATE TABLE IF NOT EXISTS notifylist (issueID text, issueDate text, sysName text, sysContact text, sysLoc text, issueSts text, notified text, readSts text, ipAdd text)');
             
-            tx.executeSql('DELETE FROM notifylist');
+//            tx.executeSql('DELETE FROM notifylist');
                        
             var len = data.length;
           
@@ -163,7 +162,7 @@ function storeNotification(data){
 }
 
 function storeProfile(uid, name, email, phoneno, date, staffno,udesignation,ulogin,ustatus) {
-    var db = window.openDatabase("Database", "1.0", "Notification", 200000);
+    
     var profile = {
     values1 : [uid, name, email, phoneno, date, staffno,udesignation,ulogin,ustatus]
     };
@@ -175,7 +174,7 @@ function storeProfile(uid, name, email, phoneno, date, staffno,udesignation,ulog
             tx.executeSql('DROP TABLE IF EXISTS userprofile');
         
             tx.executeSql('CREATE TABLE IF NOT EXISTS userprofile (uid text, name text, email text, phoneno text, date text, staffno text, udesignation text, ulogin text, ustatus text)');
-            tx.executeSql('DELETE FROM userprofile');
+//            tx.executeSql('DELETE FROM userprofile');
             tx.executeSql(
                 'INSERT INTO userprofile (uid, name, email, phoneno, date, staffno,udesignation,ulogin,ustatus) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)', 
                 profile.values1,
