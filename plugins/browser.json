@@ -7,12 +7,16 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-sqlite-evcore-extbuild-free": {
-            "PACKAGE_NAME": "com.phonegap.helloworld"
-        },
-        "cordova-sqlite-storage": {
+        "cordova-plugin-pushplugin": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
+        }
+    }
 }

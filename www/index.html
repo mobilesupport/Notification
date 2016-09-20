@@ -28,61 +28,41 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, minimum-scale=1, width=device-width, target-densitydpi=medium-dpi" />
         
         <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="css/common.css">
         
         <title>Login Page</title>
         
             <script type="text/javascript" src="js/jquery-mobile/jquery-1.11.3.min.js"></script>
         <script type="text/javascript" src="js/common.js"></script>
+        <script type="text/javascript" src="js/webRequest.js"></script>
        <!-- <script type="text/javascript" src="js/jquery-mobile/jquery.mobile-1.4.5.js"></script>-->
        
         <script type="text/javascript">
-        
-            dbmanager.initdb();
-            dbmanager.createTable();
-            dbmanager.insertData();
+            document.addEventListener("deviceready", onDeviceReady, false);
+            
+            function onBackKeyDown(e) {
+                e.preventDefault();
+                navigator.notification.confirm("Are you sure you want to exit ?", onExitConfirm, "Confirmation", "Yes,No", false);     
+            }
      
             var userNameInput;
             var passwordInput;
-            
-            function login(){
-                userNameInput=$("#username").val();
-                passwordInput=$("#password").val();
-                
-                if(userNameInput && passwordInput!=""){
-                     
-                    dbmanager.getUserProfileData(function(returnData){
-                       
-                         if(returnData.rows.length>0){
-                             
-                            location.href="notification.html";
-                        
-                        }   
-                    else{
-                        alert("Login failed. Username or password not matched");
-                        
-                    }
-              });    
-                    
-                }
-                
-            }
 
-            
         </script>
         
         
     </head>
     <body >
-        <div class="container">
+        <div class="app">
             <div class="login">
-               <form method="post">
+     
             <p>
                 <img src="img/user_logo.png" alt="User logo" style="width:42px;height:42px; margin-right:5px">
-                <input type="text" id="username" value="" p placeholder="Username" autofocus required/></p>
+                <input type="text" id="username" placeholder="Username" maxlength="20" autofocus required value="dino"/></p>
 
             <p>
                 <img src="img/password_logo.png" alt="User logo" style="width:42px;height:42px; margin-right:5px">
-                <input type="password" id="password" value=""  placeholder="Password"  required/>
+                <input type="password" id="password" placeholder="Password" maxlength="20" value="password" required/>
             </p>
             <p class="submit">
                 
@@ -90,7 +70,6 @@
                      />
                     
             </p>
-          </form>
 
             </div>
         </div>

@@ -9,72 +9,49 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, minimum-scale=1, width=device-width, target-densitydpi=medium-dpi" />
         
         <link rel="stylesheet" href="css/notification.css">
-        
+        <link rel="stylesheet" href="css/common.css">
+    
         <title>Notification Page</title>
         
-            <script type="text/javascript" src="js/jquery-mobile/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="js/jquery-mobile/jquery-1.11.3.min.js"></script>
         <script type="text/javascript" src="js/common.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
        <!-- <script type="text/javascript" src="js/jquery-mobile/jquery.mobile-1.4.5.js"></script>-->
        
         <script type="text/javascript">
             
-           
-
-            dbmanager.initdb();
-            
-            
-            function notifyshow(){
-              
-             dbmanager.getNotifyListData(function(returnData){
-                       
-                         if(returnData.rows.length>0){
-                             var count = returnData.rows.length;
-                                var contained_divs = '';
-                          //  $('.notifyview').show();
-                            for(var i=0;i<count;i++)
-                            {
-                                 
-                                contained_divs += '<div class="notifyview"><label id="headline">'+ returnData.rows.item(i).issueDate +'</label> <label id="headline">'+ returnData.rows.item(i).SysName +' </label><label id="notifymsg">'+ returnData.rows.item(i).issueStatus +' </label></div>';
-                              
-                            }
-                            $('#notifybox').append(contained_divs);
-         
-                        }   
-                    else{
-                        alert("Login failed. Username or password not matched");
-                        
-                    }
-              });    
-                    
-                
-                
+             document.addEventListener("deviceready", onDeviceReady, false);
+       
+            function onBackKeyDown(e) {
+                e.preventDefault();
+                navigator.notification.confirm("Are you sure you want to exit ?", onExitConfirm, "Confirmation", "Yes,No", false);     
             }
+            
+            dbmanager.initdb();
+            notifyshow();
+            
+          $(function(){
 
-  $(function(){
-        
-        $( "#logout" ).click(function() {
-              alert("This is Logout btn");
-            });
-      
-              $( "#notifybox" ).click(function() {
-                  window.location.href='detail.html';
-            });
-        
-    });  
+              $( "#logout" ).click(function() {
+                  
+                  navigator.notification.confirm("Are you sure you want to sign out ?", onSignOutConfirm, "Confirmation", "Yes,No", false);     
+                    
+                  });
 
+              $( "#notifybox" ).delegate('div.notifyview', 'click', function() {
 
+                  var idtext = $(this).attr('id');
+                   var url = "detail.html?name=" + idtext;
 
+                    window.location.href = url;
+              });
+
+            });  
         </script>
         
-        
-    </head>
-
+</head>
     
 <body class="pagenotification">
-    
-    <script>
-        notifyshow();
-    </script>
     
     <div class="app">
         
@@ -92,28 +69,15 @@
                 <ul class="scrollul">
             
                     <li>
-                        <div id="notifybox">
-                        </div>
-                       
+                        <div id="notifybox"></div>
                     </li>
-                    
                 </ul>
-            
         </div>
-
-        
     </div>
     
-</body> 
-    
-        <script>
+</body>     
+    <script>
         $.mobile.loading().hide();
     </script>
 
-<script>
-/*$(function(){
-    
-    $("#notifyview").append("<p id='headline'> 02/09/2016 1:05am</p><p id='headline'> UPS01_KLIA_HGR6FF4</p><p id='notifymsg'> UPS Temperature Overrun (43.0C/109.4F)</p>");*/
-
-</script>
 </html>

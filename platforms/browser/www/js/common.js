@@ -1,5 +1,18 @@
 var db;
 
+var loading = {
+    
+    //add loading page when calll
+    startLoading:function(){
+        $(".app").prepend("<div class='loadingPage'><div class='loadingFrame'><img class='loadingIcon' src='img/loading_large.gif'></img></div></div>");
+    },
+    
+    //remove loading page when call
+    endLoading:function(){
+        $(".loadingPage").remove();
+    }
+};
+
 var dbmanager = {
     initdb:function(){
         db = window.openDatabase("Database", "1.0", "Notification", 200000);
@@ -11,6 +24,8 @@ var dbmanager = {
         function createTableTransaction(tx){
             
            tx.executeSql('CREATE TABLE IF NOT EXISTS userprof (userid text PRIMARY KEY , username text, userpass text)');
+             
+//            tx.executeSql('DROP TABLE NotificationList');
             
            tx.executeSql('CREATE TABLE IF NOT EXISTS NotificationList (issueID text PRIMARY KEY , issueDate text, ipAddress text, SysName text, SysContact text,SysLocation text,issueStatus text,read text)');    
             
@@ -50,25 +65,8 @@ var dbmanager = {
           }, this.errorExecuteSQL);
         });
 },
-    
-//    displayAll:function(){
-//        
-//         db.transaction(function (tx) {
-//            tx.executeSql('SELECT * FROM userprof', [], function (tx, results) {
-//                
-//               var len = results.rows.length, i;
-//               
-//					alert(len);
-//               for (i = 0; i < len; i++){
-//                   msg = results.rows.item(i).username;
-//                   
-//                  alert(msg);
-//               }
-//            }, null);
-//         });
-//    },
-//    
-     //select all data
+
+     //select user profile data
     getUserProfileData:function(returnData){
         db.transaction(function(tx){
             
@@ -100,5 +98,112 @@ var dbmanager = {
     },
 
 };
+
+function onDeviceReady() {
+
+    document.addEventListener("backbutton", onBackKeyDown, false);
+    networkChecking();
+}
+
+function networkChecking(){
+
+  if(navigator.network.connection.type == Connection.NONE){
+
+      navigator.notification.alert("No internet connection.", function(){}, "Alert", "Ok");    
+      return false;
+
+  }else{ return true; }
+}
+
+function onExitConfirm(button) {
+    if(button==2){
+        return;
+    }else if(button==1){
+        navigator.app.exitApp();
+    }else{
+        
+    }
+}
+
+function onSignOutConfirm(button) {
+    if(button==2){
+        return;
+    }else if(button==1){
+        window.location.href = "index.html";
+    }else{
+        
+    }
+}
+
+function login(){
     
-     
+    var check = networkChecking();
+    
+    if(check == true){
+        loading.startLoading();
+         userNameInput=$("#username").val();
+        passwordInput=$("#password").val();
+
+        requestLogin(userNameInput, passwordInput);     
+    }
+   
+};
+
+function notifyshow(){
+
+    dbmanager.getNotifyListData(function(returnData){
+
+             if(returnData.rows.length>0){
+                 var count = returnData.rows.length;
+                    var contained_divs = '';
+
+                for(var i=0;i<count;i++)
+                {
+
+                    contained_divs += '<div class="notifyview" id="'+returnData.rows.item(i).issueID +'"><label id="headline">'+ returnData.rows.item(i).issueDate +'</label> <label id="headline">'+ returnData.rows.item(i).SysName +' </label><label id="notifymsg">'+ returnData.rows.item(i).issueStatus +' </label></div>';
+
+                }
+                $('#notifybox').append(contained_divs);
+
+            }   
+        else{
+            alert("Login failed. Username or password not matched");
+
+        }
+  });    
+
+
+
+};
+
+function appendDetail(num){
+    currentnum = num;
+            
+     dbmanager.getNotifyListData(function(returnData){
+
+     if(returnData.rows.length>0){
+
+             $('#dt_detail').html(returnData.rows.item(num).issueDate);
+             $('#ip_detail').html(returnData.rows.item(num).ipAddress);
+             $('#sys_detail').html(returnData.rows.item(num).SysName);
+             $('#syscon_detail').html(returnData.rows.item(num).SysContact);
+             $('#syslc_detail').html(returnData.rows.item(num).SysLocation);
+             $('#sts_detail').html(returnData.rows.item(num).issueStatus);
+        }
+    }); 
+}
+            
+
+//special dedicated to get dmz key
+function getUSPKeyFromDB(){
+    var defer=$.Deferred();
+
+    db.transaction(function(tx){
+            tx.executeSql('SELECT * FROM userprof', [], function(tx, rs){
+                defer.resolve(rs.rows);
+          }, errorGetDMZKeyFromDB);
+    });
+    
+    return defer.promise();
+}
+    
