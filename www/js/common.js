@@ -14,9 +14,9 @@ var loading = {
 };
 
 var dbmanager = {
-//    initdb:function(){
-//        db = window.openDatabase("Database", "1.0", "Notification", 200000);
-//    },
+    initdb:function(){
+        db = window.openDatabase("Database", "1.0", "Notification", 200000);
+    },
     
 //    createTable:function(){
 //        db.transaction(createTableTransaction, this.errorExecuteSQL, this.successExecuteSQL);
@@ -142,11 +142,11 @@ function notifyshow(){
              if(returnData.rows.length>0){
                  var count = returnData.rows.length;
                     var contained_divs = '';
-
+                  
                 for(var i=0;i<count;i++)
                 {
 
-                    contained_divs += '<div class="notifyview" id="'+returnData.rows.item(i).issueID +'"><label id="headline">'+ returnData.rows.item(i).issueDate +'</label> <label id="headline">'+ returnData.rows.item(i).SysName +' </label><label id="notifymsg">'+ returnData.rows.item(i).issueStatus +' </label></div>';
+                    contained_divs += '<div class="notifyview" id="'+returnData.rows.item(i).issueID +'"><label id="headline">'+ returnData.rows.item(i).issueDate +'</label> <label id="headline">'+ returnData.rows.item(i).sysName +' </label><label id="notifymsg">'+ returnData.rows.item(i).issueSts +' </label></div>';
 
                 }
                 $('#notifybox').append(contained_divs);
@@ -170,11 +170,11 @@ function appendDetail(num){
      if(returnData.rows.length>0){
 
              $('#dt_detail').html(returnData.rows.item(num).issueDate);
-             $('#ip_detail').html(returnData.rows.item(num).ipAddress);
-             $('#sys_detail').html(returnData.rows.item(num).SysName);
-             $('#syscon_detail').html(returnData.rows.item(num).SysContact);
-             $('#syslc_detail').html(returnData.rows.item(num).SysLocation);
-             $('#sts_detail').html(returnData.rows.item(num).issueStatus);
+             $('#ip_detail').html(returnData.rows.item(num).ipAdd);
+             $('#sys_detail').html(returnData.rows.item(num).sysName);
+             $('#syscon_detail').html(returnData.rows.item(num).sysContact);
+             $('#syslc_detail').html(returnData.rows.item(num).sysLoc);
+             $('#sts_detail').html(returnData.rows.item(num).issueSts);
         }
     }); 
 }
