@@ -35,7 +35,7 @@ var dbmanager = {
     getUserProfileData:function(returnData){
         db.transaction(function(tx){
             
-            tx.executeSql("SELECT * FROM userprof where username='"+userNameInput+"' and userpass='"+passwordInput+"' ", [], function(tx, rs){
+            tx.executeSql("SELECT * FROM userprofile", [], function(tx, rs){
                 returnData(rs);
           }, this.errorExecuteSQL);
         });
@@ -94,9 +94,22 @@ function onSignOutConfirm(button) {
     if(button==2){
         return;
     }else if(button==1){
-        window.location.href = "index.html";
-    }else{
         
+        
+         dbmanager.getUserProfileData(function(returnData){
+
+             if(returnData.rows.length>0){
+                 var accessId = returnData.rows.item(0).uid;
+                 postLogout(accessId);
+    
+                }   
+            else{
+                alert("Data retrieved failed");
+            }
+        });    
+        
+    }else{
+        //To do nothing
     }
 }
 

@@ -65,7 +65,7 @@ function postLogin(token, username, password){
           if(xhr.status==0)
             {}
           else
-            navigator.notification.alert("Invalid username or password", function(){}, "Alert", "Ok");
+            navigator.notification.alert(xhr.responseText, function(){}, "Alert", "Ok");
           
           loading.endLoading();
         }
@@ -114,14 +114,50 @@ function postNotification(accessId){
     }
 }
 
+function postLogout(accessId)
+{
+
+    var requestUrl="http://192.168.1.19/notification_api/api/logout/logout";
+    var valueStr=accessId+sha1Key;
+    var hashedStr=SHA1(valueStr);
+
+       try{
+            $.ajax({
+          url: requestUrl,
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          data:"accessId=" + accessId + "&checksum=" + hashedStr,
+          timeout: apiTimeOut,    
+          success: function(data, status, xhr) {
+
+                navigator.notification.alert("Log out sucessfully", function(){}, "Alert", "Ok");
+                window.location.href = "index.html";
+          },
+          error:function (xhr, ajaxOptions, thrownError){
+              if(xhr.status==0)
+                {}
+              else
+                navigator.notification.alert("Log out unsucessfully", function(){}, "Alert", "Ok");
+
+              loading.endLoading();
+            }
+        })
+
+        }
+        catch(ex){
+
+            alert(ex.message);
+        }
+}
+
 function storeNotification(data){
-    
 
         insertProfile();
-
         function insertProfile() {
        
-                   db.transaction(function(tx) {
+        db.transaction(function(tx) {
             
             tx.executeSql('DROP TABLE IF EXISTS notifylist');
             
@@ -147,17 +183,14 @@ function storeNotification(data){
                 values1 : [issueID, issueDate, sysName, sysContact, sysLoc, issueSts,notified,readSts,ipAdd]
                 };
 
-
-                    tx.executeSql(
-                        'INSERT INTO notifylist (issueID, issueDate, sysName, sysContact, sysLoc, issueSts,notified,readSts,ipAdd) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',notificationData.values1,successNotifyLogin,errorNotifyLogin);
+                tx.executeSql(
+                    'INSERT INTO notifylist (issueID, issueDate, sysName, sysContact, sysLoc, issueSts,notified,readSts,ipAdd) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',notificationData.values1,successNotifyLogin,errorNotifyLogin);
             }
+                        loading.endLoading();
         
         });
 
         }
-
-
-    
 
 }
 
@@ -186,15 +219,10 @@ function storeProfile(uid, name, email, phoneno, date, staffno,udesignation,ulog
 }
 
 function errorNotifyLogin(err){
-
     navigator.notification.alert("Store error", function(){}, "Alert", "Ok");
-    loading.endLoading();
 }
 
-function successNotifyLogin(){
-     window.location="notification.html";
-    loading.endLoading();
-}
+function successNotifyLogin(){}
 
 function errorLogin(err){
 
