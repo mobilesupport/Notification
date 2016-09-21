@@ -17,19 +17,6 @@ var dbmanager = {
     initdb:function(){
         db = window.openDatabase("Database", "1.0", "Notification", 200000);
     },
-    
-//    createTable:function(){
-//        db.transaction(createTableTransaction, this.errorExecuteSQL, this.successExecuteSQL);
-//        
-//        function createTableTransaction(tx){        
-//
-//            tx.executeSql('DROP TABLE NotificationList');
-//            
-////           tx.executeSql('CREATE TABLE IF NOT EXISTS NotificationList (issueID text PRIMARY KEY , issueDate text, ipAddress text, SysName text, SysContact text,SysLocation text,issueStatus text,read text)');    
-//            
-//        }
-//    },
-        
 
      //select user profile data
     getUserProfileData:function(returnData){
@@ -42,7 +29,7 @@ var dbmanager = {
          
     },
     
-    
+    //select notfication data
     getNotifyListData:function(returnData){
         db.transaction(function(tx){
            tx.executeSql('SELECT * FROM notifylist', [], function(tx, rs){
@@ -169,19 +156,5 @@ function appendDetail(num){
              $('#sts_detail').html(returnData.rows.item(num).issueSts);
         }
     }); 
-}
-            
-
-//special dedicated to get dmz key
-function getUSPKeyFromDB(){
-    var defer=$.Deferred();
-
-    db.transaction(function(tx){
-            tx.executeSql('SELECT * FROM userprof', [], function(tx, rs){
-                defer.resolve(rs.rows);
-          }, errorGetDMZKeyFromDB);
-    });
-    
-    return defer.promise();
 }
     

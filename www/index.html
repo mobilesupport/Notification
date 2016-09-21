@@ -32,9 +32,11 @@
         
         <title>Login Page</title>
         
-            <script type="text/javascript" src="js/jquery-mobile/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="js/jquery-mobile/jquery-1.11.3.min.js"></script>
         <script type="text/javascript" src="js/common.js"></script>
         <script type="text/javascript" src="js/webRequest.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
        <!-- <script type="text/javascript" src="js/jquery-mobile/jquery.mobile-1.4.5.js"></script>-->
        
         <script type="text/javascript">
@@ -59,28 +61,18 @@
             <p>
                 <img src="img/user_logo.png" alt="User logo" style="width:42px;height:42px; margin-right:5px">
                 <input type="text" id="username" placeholder="Username" maxlength="20"  autofocus required/></p>
-
             <p>
                 <img src="img/password_logo.png" alt="User logo" style="width:42px;height:42px; margin-right:5px">
                 <input type="password" id="password" placeholder="Password" maxlength="20"  required/>
             </p>
-            <p class="submit">
-                
-                    <input type="image" name="submit" src="img/submit.png" border="0" alt="Submit" onclick="login();" style="width:42px;height:42px; float:right"
-                     />
-                    
+            <p class="submit">     
+                <input type="image" name="submit" src="img/submit.png" border="0" alt="Submit" onclick="login();" style="width:42px;height:42px; float:right"
+                 />            
             </p>
 
             </div>
         </div>
-        
-         <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript">
-        app.initialize();
-        
-    </script>
-       
+
     </body>
     
       <script>

@@ -62,8 +62,10 @@ function sharetoSocial(){
         sharing.initShareSheet();
 }
 
-function pageMovement(num)
+function pageMovement(no)
 {
+    num = no;
+
      if(num == 0){
 
         $( "#previous" ).hide();
