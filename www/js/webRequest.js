@@ -54,8 +54,7 @@ function postLogin(token, username, password){
         var udesignation= data.USER_DESIGNATION;
         var ulogin=data.USER_LOGIN;
         var ustatus=data.USER_STATUS; 
-       
-        
+
            storeProfile(uid, name, email, phoneno, date, staffno,udesignation,ulogin,ustatus);
            postNotification(uid); 
           

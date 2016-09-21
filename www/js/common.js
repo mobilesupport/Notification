@@ -137,8 +137,6 @@ function notifyshow(){
         }
   });    
 
-
-
 };
 
 function appendDetail(num){
