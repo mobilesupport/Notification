@@ -1,4 +1,4 @@
-function displayDetail(){
+function displayDetail(num){
   
        if (idString == null) {
            
@@ -12,9 +12,8 @@ function displayDetail(){
                     idString = value;
                         }
                 }
-        };
-
-         dbmanager.getNotifyListData(function(returnData){
+           
+                dbmanager.getNotifyListData(function(returnData){
 
                 if(returnData.rows.length>0){
                     
@@ -39,6 +38,27 @@ function displayDetail(){
 
                 }
           });    
+        }else{
+            
+            dbmanager.getNotifyListData(function(returnData){
+
+                if(returnData.rows.length>0){
+                    
+                   
+                      idString = returnData.rows.item(num).issueID;
+                   
+                    pageMovement(num); 
+                    appendDetail(num);
+                    
+                    
+                 }   
+                else{
+                    alert("Data retrieve failed");
+
+                }
+          }); 
+        }
+
 
 };
 

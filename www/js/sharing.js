@@ -26,36 +26,34 @@ var sharing={
 
     
     whatsappShare:function(){
-
-//        var getDMZKeyFromDbProcess=getDMZKeyFromDB();
-//        $.when(getDMZKeyFromDbProcess).done(function(data){
-//            var sharingpage=$("#sharingpage").val();
-//            
-//            if(sharingpage=='product'){
-//                var baseurl=data.item(0).BASEURL; 
-//                var websiteLink=$("#websitelink a").attr("href");
-//                websiteLink= baseurl+websiteLink.substring(1, websiteLink.length);
-//
-//                window.plugins.socialsharing.shareViaWhatsApp(null, null, websiteLink,   function() {
-//                    app.closeShareSheet();
-//                }, function(errormsg){
-//                    navigator.notification.alert(errormsg, function(){}, "MDeC eSolutions", "Ok");
-//                });
-//            }
-//            else{
-//                var baseurl=data.item(0).BASEURL; 
-//                var title=$("#companyName").text();
-//                
-//                title="msc-company/"+title.replace(/\s+/g, '-');
-//                var websiteLink= baseurl+title;
-//                
-//                window.plugins.socialsharing.shareViaWhatsApp(null, null, websiteLink,   function() {
-//                    app.closeShareSheet();
-//                }, function(errormsg){
-//                    navigator.notification.alert(errormsg, function(){}, "MDeC eSolutions", "Ok");
-//                });
-//            }
-//        });
+        var len,count,msg;
+        
+           dbmanager.getNotifyListData(function(returnData){
+                
+             if(returnData.rows.length>0){
+                 
+                 len = returnData.rows.length;
+                 
+                 for(var i=0;i<len;i++)
+                        {
+                          if(returnData.rows.item(i).issueID == idString)
+                              {
+                                  count = i;
+                                  break;
+                              }
+                        }
+                 
+                 
+                 msg=returnData.rows.item(count).issueSts;
+                 
+                 window.plugins.socialsharing.shareViaWhatsApp(msg, null, null, function() {}, function(errormsg){alert(errormsg)});
+             
+             }   
+            else{
+                alert("Data retrieved failed");
+            }
+        });   
+        
     },
     
 

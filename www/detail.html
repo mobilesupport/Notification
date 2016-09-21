@@ -28,7 +28,7 @@
     
     <script type="text/javascript">
         
-        var idString,num,currentnum,totalpage;
+        var idString,num=0,currentnum,totalpage;
         
         document.addEventListener("deviceready", onDeviceReady, false);
         
@@ -37,7 +37,7 @@
             window.history.back();
         }
         dbmanager.initdb();
-        displayDetail();   
+        displayDetail(num);   
         
         $(function () {
            
@@ -45,8 +45,9 @@
                  if(num > 0)
                   {
                       num = num-1;
-                      pageMovement(num);
-                      appendDetail(num);
+                      displayDetail(num);   
+//                      pageMovement(num);
+//                      appendDetail(num);
                   }
             });
 
@@ -54,8 +55,9 @@
                  if(num < totalpage)
                   {
                       num = num+1;
-                      pageMovement(num);
-                      appendDetail(num);
+                      displayDetail(num);   
+//                      pageMovement(num);
+//                      appendDetail(num);
                   }
             });
 
