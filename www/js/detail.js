@@ -10,8 +10,8 @@ function displayDetail(num){
                     var value = decodeURIComponent(params[i].split('=')[1]);
 
                     idString = value;
-                        }
                 }
+            }
            
                 dbmanager.getNotifyListData(function(returnData){
 
@@ -31,7 +31,6 @@ function displayDetail(num){
                     pageMovement(num); 
                     appendDetail(num);
                     
-                    
                  }   
                 else{
                     alert("Data retrieve failed");
@@ -43,14 +42,9 @@ function displayDetail(num){
             dbmanager.getNotifyListData(function(returnData){
 
                 if(returnData.rows.length>0){
-                    
-                   
-                      idString = returnData.rows.item(num).issueID;
-                   
+                    idString = returnData.rows.item(num).issueID;
                     pageMovement(num); 
                     appendDetail(num);
-                    
-                    
                  }   
                 else{
                     alert("Data retrieve failed");
@@ -66,11 +60,6 @@ function displayDetail(num){
 function sharetoSocial(){
 
         sharing.initShareSheet();
-}
-
-function refertoSharing()
-{
-    window.location.href = "sharingpage.html"
 }
 
 function pageMovement(num)

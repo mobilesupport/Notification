@@ -4,7 +4,6 @@ var datacount = 0;
 var sha1Key = 8345627;
 var registrationId = 123;
 
-
 function requestLogin(username, password){
 
         $.ajax({
@@ -64,9 +63,11 @@ function postLogin(token, username, password){
       error:function (xhr, ajaxOptions, thrownError){
           if(xhr.status==0)
             {}
-          else
-            navigator.notification.alert(xhr.responseText, function(){}, "Alert", "Ok");
-          
+          else{
+              var newJsonObj=$.parseJSON(xhr.responseText);
+              navigator.notification.alert(newJsonObj.Message, function(){}, "Alert", "Ok");
+          }
+        
           loading.endLoading();
         }
     })
@@ -131,8 +132,10 @@ function postLogout(accessId)
           data:"accessId=" + accessId + "&checksum=" + hashedStr,
           timeout: apiTimeOut,    
           success: function(data, status, xhr) {
-
-                navigator.notification.alert("Log out sucessfully", function(){}, "Alert", "Ok");
+              
+              var newJsonObj=$.parseJSON(xhr.responseText);
+              
+              navigator.notification.alert(newJsonObj.Message, function(){}, "Alert", "Ok");
                 window.location.href = "index.html";
           },
           error:function (xhr, ajaxOptions, thrownError){
