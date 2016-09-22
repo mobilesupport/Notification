@@ -65,8 +65,8 @@ var app = {
          
          navigator.FCMNotification.fcmReadAllMessages(function(result){
              /* Return all message in json formate with id and message */
-           alert("result");
-         },function(e){alert("e")}
+           alert(result);
+         },function(e){alert(e)}
          );
 
 
