@@ -37,6 +37,7 @@ buildscript {
     }
    }
 
+
 // Allow plugins to declare Maven dependencies via build-extras.gradle.
 repositories {
     mavenCentral()
@@ -308,3 +309,5 @@ for (def func : cdvPluginPostBuildExtras) {
 if (hasProperty('postBuildExtras')) {
     postBuildExtras()
 }
+
+apply plugin: 'com.google.gms.google-services'
