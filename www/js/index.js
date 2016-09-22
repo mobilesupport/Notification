@@ -52,10 +52,10 @@ var app = {
     },
     
      initPushNotificationRegister: function(){
-    
+     alert("xxx");
            navigator.FCMNotification.fcmTokenID(function(tokenID){
                
-               alert("uuu");
+              
         // retrun token id for notification service
         alert("Token ID = " + tokenID);
         //Token ID use for call notification form FCM server.
