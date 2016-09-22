@@ -52,15 +52,30 @@ var app = {
     },
     
      initPushNotificationRegister: function(){
+                  
+          FCMPlugin.onNotification(
+          function(data){
+            setTimeout(function(){
+                alert(data.notification.body);
+            }, 100);
+            alert('data');
+          },
+          function(data){
+            alert('succsess');
+          },
+          function(data){
+            alert('error');
+          }
+        );
 
-           navigator.FCMNotification.fcmTokenID(function(tokenID){
-               
-        // retrun token id for notification service
-        alert("Token ID = " + tokenID);
-        //Token ID use for call notification form FCM server.
-     }, function(error){
-        alert(error);
-     });
+//           navigator.FCMNotification.fcmTokenID(function(tokenID){
+//               
+//        // retrun token id for notification service
+//        alert("Token ID = " + tokenID);
+//        //Token ID use for call notification form FCM server.
+//     }, function(error){
+//        alert(error);
+//     });
 
 
     },
