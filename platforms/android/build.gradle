@@ -32,7 +32,6 @@ buildscript {
     // and https://issues.apache.org/jira/browse/CB-8143
     dependencies {
         classpath 'com.android.tools.build:gradle:1.5.0'
-        classpath 'com.google.gms:google-services:3.0.0'
     }
    }
 
@@ -87,7 +86,6 @@ ext {
 }
 
 // PLUGIN GRADLE EXTENSIONS START
-apply from: "cordova-plugin-fcm/ApeciaNotification-FCMPlugin.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras = file('build-extras.gradle').exists()
@@ -243,11 +241,12 @@ dependencies {
     // SUB-PROJECT DEPENDENCIES START
     debugCompile project(path: "CordovaLib", configuration: "debug")
     releaseCompile project(path: "CordovaLib", configuration: "release")
+    compile "com.google.android.gms:play-services-gcm:+"
+    compile "com.android.support:support-v4:+"
     compile "com.android.support:appcompat-v7:23.2.1"
     compile "com.google.firebase:firebase-messaging:9.0.2"
     // SUB-PROJECT DEPENDENCIES END
 }
- apply plugin: "com.google.gms.google-services"
 
 def promptForReleaseKeyPassword() {
     if (!cdvReleaseSigningPropertiesFile) {
