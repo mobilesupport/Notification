@@ -20,6 +20,10 @@
     <feature name="FCMNotificationPlugin">
         <param name="android-package" value="com.lokesh.FCMNotification.plugin.FCMNotificationPlugin" />
     </feature>
+    <feature name="FCMPlugin">
+        <param name="android-package" value="com.gae.scaffolder.plugin.FCMPlugin" />
+        <param name="onload" value="true" />
+    </feature>
     <allow-intent href="market:*" />
     <name>Apecia Notification</name>
     <description>Hello World sample application that responds to the deviceready event.</description>

@@ -18,6 +18,9 @@
         },
         "Cordova-Plugin-FCMNotification": {
             "PACKAGE_NAME": "com.pssb.ApeciaNotification"
+        },
+        "cordova-plugin-fcm": {
+            "PACKAGE_NAME": "com.pssb.ApeciaNotification"
         }
     },
     "dependent_plugins": {

@@ -47,6 +47,14 @@ module.exports = [
         "clobbers": [
             "navigator.FCMNotification"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-fcm/www/FCMPlugin.js",
+        "id": "cordova-plugin-fcm.FCMPlugin",
+        "pluginId": "cordova-plugin-fcm",
+        "clobbers": [
+            "FCMPlugin"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -57,7 +65,8 @@ module.exports.metadata =
     "cordova-plugin-pushplugin": "2.6.1",
     "cordova-plugin-whitelist": "1.2.2",
     "cordova-plugin-x-socialsharing": "5.1.3",
-    "Cordova-Plugin-FCMNotification": "1.0.0-dev"
+    "Cordova-Plugin-FCMNotification": "1.0.0-dev",
+    "cordova-plugin-fcm": "1.1.4"
 }
 // BOTTOM OF METADATA
 });

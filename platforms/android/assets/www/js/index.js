@@ -61,15 +61,7 @@ var app = {
      }, function(error){
         alert(error);
      });
-//        var pushNotification = window.plugins.pushNotification;
-//        
-//        
-//        if ( device.platform == 'android' || device.platform == 'Android'){
-//            pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"227139393233","ecb":"app.onNotificationGCM"});
-//        } 
-//        else {
-//            pushNotification.register(app.tokenHandler,app.errorHandler,{"badge":"true","sound":"true","alert":"true","ecb":"app.onNotificationAPN"});
-//        }
+
 
     },
     
