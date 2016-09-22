@@ -35,7 +35,6 @@ buildscript {
         classpath 'com.google.gms:google-services:3.0.0'
 
     }
-    apply plugin: 'com.google.gms.google-services'
    }
 
 
@@ -310,5 +309,3 @@ for (def func : cdvPluginPostBuildExtras) {
 if (hasProperty('postBuildExtras')) {
     postBuildExtras()
 }
-
-apply plugin: 'com.google.gms.google-services'
