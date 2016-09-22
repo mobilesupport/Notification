@@ -32,6 +32,8 @@ buildscript {
     // and https://issues.apache.org/jira/browse/CB-8143
     dependencies {
         classpath 'com.android.tools.build:gradle:1.5.0'
+        classpath 'com.google.gms:google-services:3.0.0'
+
     }
    }
 
@@ -244,6 +246,7 @@ dependencies {
     releaseCompile project(path: "CordovaLib", configuration: "release")
     // SUB-PROJECT DEPENDENCIES END
 }
+ apply plugin: 'com.google.gms.google-services'
 
 def promptForReleaseKeyPassword() {
     if (!cdvReleaseSigningPropertiesFile) {
