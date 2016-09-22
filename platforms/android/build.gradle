@@ -19,8 +19,8 @@
 
 // GENERATED FILE! DO NOT EDIT!
 
-apply plugin: 'android'
-apply plugin: 'com.google.gms.google-services'
+//apply plugin: 'android'
+
 buildscript {
     repositories {
         mavenCentral()
@@ -248,6 +248,7 @@ dependencies {
     compile "com.google.firebase:firebase-messaging:9.0.2"
     // SUB-PROJECT DEPENDENCIES END
 }
+apply plugin: 'com.google.gms.google-services'
 
 def promptForReleaseKeyPassword() {
     if (!cdvReleaseSigningPropertiesFile) {
