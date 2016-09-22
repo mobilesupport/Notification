@@ -245,6 +245,7 @@ dependencies {
     releaseCompile project(path: "CordovaLib", configuration: "release")
     compile "com.android.support:appcompat-v7:23.2.1"
     compile "com.google.firebase:firebase-messaging:9.0.2"
+    compile "com.google.android.gms:9.2.0"
     compile "com.google.android.gms:play-services-gcm:9.2.0"
     compile "com.android.support:support-v4:+"
     // SUB-PROJECT DEPENDENCIES END
