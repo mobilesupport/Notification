@@ -19,7 +19,7 @@
 
 // GENERATED FILE! DO NOT EDIT!
 
-//apply plugin: 'android'
+apply plugin: 'android'
 
 buildscript {
     repositories {
@@ -35,6 +35,7 @@ buildscript {
         classpath 'com.google.gms:google-services:3.0.0'
 
     }
+    apply plugin: 'com.google.gms.google-services'
    }
 
 
@@ -172,7 +173,7 @@ android {
             minSdkVersion cdvMinSdkVersion
         }
     }
-
+    
     lintOptions {
       abortOnError false;
     }
@@ -248,7 +249,7 @@ dependencies {
     compile "com.google.firebase:firebase-messaging:9.0.2"
     // SUB-PROJECT DEPENDENCIES END
 }
-// apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.gms.google-services'
 
 def promptForReleaseKeyPassword() {
     if (!cdvReleaseSigningPropertiesFile) {
@@ -310,4 +311,4 @@ if (hasProperty('postBuildExtras')) {
     postBuildExtras()
 }
 
-//apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.gms.google-services'
