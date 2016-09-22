@@ -19,7 +19,6 @@
 
 // GENERATED FILE! DO NOT EDIT!
 
-apply plugin: 'android'
 
 buildscript {
     repositories {
