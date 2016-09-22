@@ -155,7 +155,7 @@ function postLogout(accessId)
 }
 
 function storeNotification(data){
-
+       
         insertProfile();
         function insertProfile() {
        
@@ -164,13 +164,14 @@ function storeNotification(data){
             tx.executeSql('DROP TABLE IF EXISTS notifylist');
             
             tx.executeSql('CREATE TABLE IF NOT EXISTS notifylist (issueID text, issueDate text, sysName text, sysContact text, sysLoc text, issueSts text, notified text, readSts text, ipAdd text)');
-            
+            alert("xxx");
 //            tx.executeSql('DELETE FROM notifylist');
                        
             var len = data.length;
-          
-            for(var i=0; i<len; i++)
+         
+            for(var i=0; i<3; i++)
             {
+                
                 var issueID=data[i].ISSUE_ID;
                 var issueDate=data[i].ISSUE_DATE;
                 var sysName=data[i].SYSTEM_NAME;
@@ -186,7 +187,12 @@ function storeNotification(data){
                 };
 
                 tx.executeSql(
-                    'INSERT INTO notifylist (issueID, issueDate, sysName, sysContact, sysLoc, issueSts,notified,readSts,ipAdd) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',notificationData.values1,successNotifyLogin,errorNotifyLogin);
+                    'INSERT INTO notifylist (issueID, issueDate, sysName, sysContact, sysLoc, issueSts,notified,readSts,ipAdd) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+                    notificationData.values1,
+                    successNotifyLogin,
+                    errorNotifyLogin
+                );
+                
             }
                         loading.endLoading();
         

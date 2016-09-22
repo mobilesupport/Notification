@@ -33,6 +33,7 @@ var dbmanager = {
     getNotifyListData:function(returnData){
         db.transaction(function(tx){
            tx.executeSql('SELECT * FROM notifylist', [], function(tx, rs){
+               
                 returnData(rs);
           }, this.errorExecuteSQL);
         });
