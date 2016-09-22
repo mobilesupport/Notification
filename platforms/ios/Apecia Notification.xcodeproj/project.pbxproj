@@ -33,6 +33,7 @@
 		4A24F802F92E4FFEA03CEE4F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51EB08574E4F4B7EB85D415A /* AddressBook.framework */; };
 		03BF9863BB8E4BD0B9690C33 /* libsqlite3.0.tbd in Resources */ = {isa = PBXBuildFile; fileRef = 50659B86C19C4FB5A3B9475D /* libsqlite3.0.tbd */; };
 		74B1DEA16BFB4E90BEC0CC65 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F2DA43229742BE9534706A /* Security.framework */; };
+		E38C7181ED7B4CD4BD3A347F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 079F20A4121C4926AC116332 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		51EB08574E4F4B7EB85D415A /* AddressBook.framework */ = {isa = PBXFileReference; name = "AddressBook.framework"; path = "System/Library/Frameworks/AddressBook.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		50659B86C19C4FB5A3B9475D /* libsqlite3.0.tbd */ = {isa = PBXFileReference; name = "libsqlite3.0.tbd"; path = "libsqlite3.0.tbd"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		57F2DA43229742BE9534706A /* Security.framework */ = {isa = PBXFileReference; name = "Security.framework"; path = "System/Library/Frameworks/Security.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		079F20A4121C4926AC116332 /* GoogleService-Info.plist */ = {isa = PBXFileReference; name = "GoogleService-Info.plist"; path = "cordova-plugin-fcm-config/GoogleService-Info.plist"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = text.plist.xml; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +236,7 @@
 				35DFE266E3FE41ACABD362AD /* FCMPlugin.h */,
 				13313E39DFD944C09ABD338D /* AppDelegate+FCMPlugin.h */,
 				940D1DEC35BA490E827310C3 /* Firebase.h */,
+				079F20A4121C4926AC116332 /* GoogleService-Info.plist */,
 			);
 			name = Plugins;
 			path = "Apecia Notification/Plugins";
@@ -352,6 +355,7 @@
 				5915E14084A6486EA7592BCC /* SocialSharing.m in Sources */,
 				87F4537958B84D208432AF14 /* FCMPlugin.m in Sources */,
 				5BB1248EF39B47F9ACDD8363 /* AppDelegate+FCMPlugin.m in Sources */,
+				E38C7181ED7B4CD4BD3A347F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
