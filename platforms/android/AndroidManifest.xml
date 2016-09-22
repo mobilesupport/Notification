@@ -9,14 +9,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:exported="true" android:name="com.plugin.gcm.PushHandlerActivity" />
-        <receiver android:name="com.plugin.gcm.CordovaGCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-                <category android:name="com.pssb.ApeciaNotification" />
-            </intent-filter>
-        </receiver>
         <activity android:name="com.lokesh.FCMNotification.plugin.FCMNotificationHandlerActivity" android:theme="@android:style/Theme.Black.NoTitleBar" />
         <service android:name="com.lokesh.FCMNotification.plugin.MyFirebaseMessagingService">
             <intent-filter>
@@ -46,11 +38,7 @@
         </service>
     </application>
     <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="23" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-    <permission android:name="com.pssb.ApeciaNotification.permission.C2D_MESSAGE" android:protectionLevel="signature" />
-    <uses-permission android:name="com.pssb.ApeciaNotification.permission.C2D_MESSAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 </manifest>
