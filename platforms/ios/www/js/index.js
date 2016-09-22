@@ -52,15 +52,14 @@ var app = {
     },
     
      initPushNotificationRegister: function(){
-    
+
            navigator.FCMNotification.fcmTokenID(function(tokenID){
                
-               alert("uuu");
         // retrun token id for notification service
         alert("Token ID = " + tokenID);
         //Token ID use for call notification form FCM server.
      }, function(error){
-        alert(error);
+        alert("this is it");
      });
 //        var pushNotification = window.plugins.pushNotification;
 //        
