@@ -248,7 +248,7 @@ dependencies {
     compile "com.google.firebase:firebase-messaging:9.0.2"
     // SUB-PROJECT DEPENDENCIES END
 }
- apply plugin: 'com.google.gms.google-services'
+ apply plugin: "com.google.gms.google-services"
 
 def promptForReleaseKeyPassword() {
     if (!cdvReleaseSigningPropertiesFile) {
